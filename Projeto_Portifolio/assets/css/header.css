@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header .photo{
+    width: 200;
+    height: 200;
+    border-radius: 50%;
+}
+.header .title{
+    font-family: 'Naue Machina';
+    text-align: center;
+}

@@ -16,7 +16,7 @@ class SectionNews extends HTMLElement {
     sectionLeft.setAttribute("class", "article_left");
 
     const autor1 = document.createElement("span");
-    autor1.textContent = (this.getAttribute("autor1") || "Sem notícias, por enquanto");
+    autor1.textContent = (this.getAttribute("autor1") || "Notícia 1");
 
     const linkTitle1 = document.createElement("a");
     linkTitle1.textContent = this.getAttribute("title");
@@ -34,7 +34,7 @@ class SectionNews extends HTMLElement {
     sectionRight.setAttribute("class", "article_right");
 
     const autor2 = document.createElement("span");
-    autor2.textContent = (this.getAttribute("autor") || "Notícia 2");
+    autor2.textContent = (this.getAttribute("autor2") || "Notícia 2");
 
     const linkTitle2 = document.createElement("a");
     linkTitle2.textContent = this.getAttribute("title");
@@ -53,9 +53,11 @@ class SectionNews extends HTMLElement {
     return componentRoot;
   }
 
+  // Pode ser criado um arquivo CSS separado, daí faz-se só a chamada
   styles() {
     const style = document.createElement("style");
     style.textContent = `
+
         .article_left {
           border: 1px solid #B2B2B4 ;
           padding: 20%;
@@ -71,6 +73,7 @@ class SectionNews extends HTMLElement {
         section {
           margin-top:10px;
           display: flex;
+          padding-left: 7%;
         }
     `;
 

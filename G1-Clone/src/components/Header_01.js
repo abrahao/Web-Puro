@@ -62,7 +62,7 @@ class Header01 extends HTMLElement {
           header {
             width: 35vw;
             margin: 2px;
-            margin-left: 25px;
+            margin-left: 26px;
             padding: 1px;
             background: white;
             display: flex;

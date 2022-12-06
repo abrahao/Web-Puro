@@ -30,7 +30,7 @@ class Header02 extends HTMLElement {
           .header {
             padding: 1px;
             margin-botton: 1px;
-            background: red;
+            background: #c10f0f;
           }
           h3{
             font-weight: bold;

@@ -81,20 +81,68 @@
                 padding: 8px 16px;
             }
         }
-        footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
 
-    footer p {
-        margin: 0;
-        font-size: 14px;
-    }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        a[href="como-funciona.php"] {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #fff;
+            padding: 5px 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a[href="como-funciona.php"]:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        a[href="enviar-feedback.php"] {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #fff;
+            padding: 5px 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a[href="enviar-feedback.php"]:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Updated CSS */
+        .link-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .left-link {
+            order: 1;
+        }
+
+        .right-link {
+            order: 2;
+        }
     </style>
 </head>
 
@@ -103,10 +151,16 @@
         <h1>Notas Diárias</h1>
     </header>
     <main>
+        <div class="link-container">
+            <a href="como-funciona.php" class="left-link">Sobre</a>
+            <a href="enviar-feedback.php" class="right-link">Enviar Feedback</a>
+        </div>
+        <br><br>
         <input type="text" id="titulo" placeholder="Título">
         <textarea id="diario" placeholder="Escreva suas notas aqui..."></textarea>
         <button id="salvar">Salvar</button>
     </main>
+
 
     <footer>
         <p>&copy; 2023 - <span id="currentYear"></span> Abrahão Eneias</p>
@@ -139,6 +193,8 @@
 
                 downloadDiario(conteudoArquivo, nomeArquivo);
             }
+            tituloInput.value = '';
+            diarioTextarea.value = '';
         });
 
         function downloadDiario(text, filename) {

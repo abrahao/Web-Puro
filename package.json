@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "nodemailer": "^6.9.6",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {

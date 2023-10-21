@@ -93,7 +93,7 @@
             <li>Use o campo "Escreva suas notas aqui..." para digitar o conteúdo da sua nota diária.</li>
             <li>Clique no botão "Salvar" para salvar a nota.</li>
             <li>Uma vez salva, a nota será armazenada em um arquivo de texto para download.</li>
-            <li>o arquivo gerado não será salvo em bancos de dados terceiros, será apenas em seu dispositivo</li>
+            <li>Visando a sua privacidade o arquivo gerado não será salvo em nenhum banco de dados, será apenas em seu dispositivo</li>
         </ol>
     </main>
     <footer>

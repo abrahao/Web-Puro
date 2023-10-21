@@ -1,6 +1,8 @@
 <!-- Notas Diárioas -->
+<!-- Github: https://github.com/abrahao/Web-Puro/tree/main/NotasDiarias -->
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,8 +64,27 @@
         button:hover {
             background-color: #555;
         }
+          /* Media queries for responsiveness */
+          @media (max-width: 600px) {
+            main {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            input[type="text"],
+            textarea {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            button {
+                padding: 8px 16px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Notas Diárias</h1>
@@ -75,50 +96,51 @@
     </main>
 
     <script>
-    const tituloInput = document.getElementById('titulo');
-    const diarioTextarea = document.getElementById('diario');
-    const salvarButton = document.getElementById('salvar');
+        const tituloInput = document.getElementById('titulo');
+        const diarioTextarea = document.getElementById('diario');
+        const salvarButton = document.getElementById('salvar');
 
-    salvarButton.addEventListener('click', function() {
-        const titulo = tituloInput.value;
-        const diarioTexto = diarioTextarea.value.trim(); // Remove espaços em branco no início e no fim
+        salvarButton.addEventListener('click', function () {
+            const titulo = tituloInput.value;
+            const diarioTexto = diarioTextarea.value.trim(); // Remove espaços em branco no início e no fim
 
-        if (diarioTexto) {
-            // Obtém a data e hora atuais
-            const dataAtual = new Date();
-            const dia = dataAtual.getDate().toString().padStart(2, '0');
-            const mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0');
-            const ano = dataAtual.getFullYear();
-            const hora = dataAtual.getHours().toString().padStart(2, '0');
-            const minuto = dataAtual.getMinutes().toString().padStart(2, '0');
+            if (diarioTexto) {
+                // Obtém a data e hora atuais
+                const dataAtual = new Date();
+                const dia = dataAtual.getDate().toString().padStart(2, '0');
+                const mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0');
+                const ano = dataAtual.getFullYear();
+                const hora = dataAtual.getHours().toString().padStart(2, '0');
+                const minuto = dataAtual.getMinutes().toString().padStart(2, '0');
 
-            // Define o nome do arquivo com base na data e hora
-            const nomeArquivo = `${dia}-${mes}-${ano}_${hora}h-${minuto}min.txt`;
+                // Define o nome do arquivo com base na data e hora
+                const nomeArquivo = `${dia}-${mes}-${ano}_${hora}h-${minuto}min.txt`;
 
-            // Conteúdo do arquivo a ser salvo
-            const data_hora = `${dia}/${mes}/${ano} - ${hora}:${minuto}`;
-            const conteudoArquivo = `${data_hora}\n\nTítulo: ${titulo}\n\nNota:\n${diarioTexto}`;
+                // Conteúdo do arquivo a ser salvo
+                const data_hora = `${dia}/${mes}/${ano} - ${hora}:${minuto}`;
+                const conteudoArquivo = `${data_hora}\n\nTítulo: ${titulo}\n\nNota:\n${diarioTexto}`;
 
-            downloadDiario(conteudoArquivo, nomeArquivo);
+                downloadDiario(conteudoArquivo, nomeArquivo);
+            }
+        });
+
+        function downloadDiario(text, filename) {
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+
+            a.style.display = 'none';
+            document.body.appendChild(a);
+
+            a.click();
+
+            window.URL.revokeObjectURL(url);
         }
-    });
-
-    function downloadDiario(text, filename) {
-        const blob = new Blob([text], { type: 'text/plain' });
-        const url = window.URL.createObjectURL(blob);
-
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = filename;
-
-        a.style.display = 'none';
-        document.body.appendChild(a);
-
-        a.click();
-
-        window.URL.revokeObjectURL(url);
-    }
-</script>
+    </script>
 
 </body>
+
 </html>

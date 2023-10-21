@@ -109,7 +109,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Meu Diário</p>
+        <p>&copy; 2023 - <span id="currentYear"></span> Abrahão Eneias</p>
     </footer>
 
     <script>
@@ -156,6 +156,11 @@
 
             window.URL.revokeObjectURL(url);
         }
+
+        const currentYearElement = document.getElementById("currentYear");
+        const currentYear = new Date().getFullYear();
+        currentYearElement.textContent = currentYear;
+
     </script>
 
 </body>

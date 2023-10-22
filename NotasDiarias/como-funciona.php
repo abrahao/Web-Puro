@@ -91,7 +91,7 @@
         <ol>
             <li>Preencha o campo "Título" com um título para a sua nota. Campo não obrigatório.</li>
             <li>Use o campo "Escreva suas notas aqui..." para digitar o conteúdo da sua nota diária.</li>
-            <li>Clique no botão "Salvar" para salvar a nota.</li>
+            <li>Clique no botão "Salvar" para fazer o download da nota.</li>
             <li>Uma vez salva, a nota será armazenada em um arquivo de texto para download.</li>
             <li>Visando a sua privacidade o arquivo gerado não será salvo em nenhum banco de dados, será apenas em seu dispositivo</li>
         </ol>

@@ -178,32 +178,18 @@
             </div>
             <br><br>
             <textarea id="feedback" name="feedback" placeholder="Escreva seu feedback aqui..."></textarea>
-            <button type="submit" name="submit">Enviar</button>
+            <a href="mailto:abrahao.eneias@icloud.com?subject=Feedback&body=" id="sendEmail">Enviar</a>
         </form>
         <div id="feedbackMessage">
             <!-- A mensagem de sucesso ou erro será inserida aqui. -->
         </div>
 
     </main>
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-        $to = "abrahao.eneias@icloud.com";
-
-        $subject = "Feedback do App Notas Diárias";
-        $message = $_POST["feedback"];
-
-        if (mail($to, $subject, $message)) {
-            echo '<div id="feedbackMessage" class="success-message">O feedback foi enviado com sucesso. Obrigado!</div>';
-        } else {
-            echo '<div id="feedbackMessage" class="error-message">Desculpe, houve um erro ao enviar o feedback.</div>';
-        }
-    }
-    ?>
 
     <footer>
         <p>&copy; 2023 - <span id="currentYear"></span> Abrahão Eneias</p>
     </footer>
-</body>
 
+</body>
 
 </html>

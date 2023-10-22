@@ -112,6 +112,7 @@
             background-color: #333;
             color: #fff;
         }
+
         a[href="enviar-feedback.php"] {
             color: #333;
             text-decoration: none;
@@ -128,7 +129,6 @@
             color: #fff;
         }
 
-        /* Updated CSS */
         .link-container {
             display: flex;
             justify-content: space-between;
@@ -143,7 +143,24 @@
         .right-link {
             order: 2;
         }
+
+        a#sendEmail {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #fff;
+            padding: 5px 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a#sendEmail:hover {
+            background-color: #333;
+            color: #fff;
+        }
     </style>
+
 </head>
 
 <body>
@@ -153,7 +170,9 @@
     <main>
         <div class="link-container">
             <a href="como-funciona.php" class="left-link">Sobre</a>
-            <a href="enviar-feedback.php" class="right-link">Enviar Feedback</a>
+            <a class="right-link" href="mailto:abrahao.eneias@icloud.com?subject=Feedback do App Notas Diárias&body=" id="sendEmail"  onclick="exibirAlerta()">Enviar Feedback</a>
+
+            <!-- <a href="enviar-feedback.php" class="right-link">Enviar Feedback</a> -->
         </div>
         <br><br>
         <input type="text" id="titulo" placeholder="Título">
@@ -171,7 +190,7 @@
         const diarioTextarea = document.getElementById('diario');
         const salvarButton = document.getElementById('salvar');
 
-        salvarButton.addEventListener('click', function () {
+        salvarButton.addEventListener('click', function() {
             const titulo = tituloInput.value;
             const diarioTexto = diarioTextarea.value.trim(); // Remove espaços em branco no início e no fim
 
@@ -198,7 +217,9 @@
         });
 
         function downloadDiario(text, filename) {
-            const blob = new Blob([text], { type: 'text/plain' });
+            const blob = new Blob([text], {
+                type: 'text/plain'
+            });
             const url = window.URL.createObjectURL(blob);
 
             const a = document.createElement('a');
@@ -216,7 +237,12 @@
         const currentYearElement = document.getElementById("currentYear");
         const currentYear = new Date().getFullYear();
         currentYearElement.textContent = currentYear;
+    </script>
 
+<script>
+        function exibirAlerta() {
+            alert('Seu gerenciador de e-mail será aberto!');
+        }
     </script>
 
 </body>
